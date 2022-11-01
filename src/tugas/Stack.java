@@ -3,8 +3,8 @@ package tugas;
 import tugas.Node;
 
 public class Stack {
-	Node top;
-    int number;
+	protected Node top;
+    protected int number;
     
     public Stack() {
         top = null;
