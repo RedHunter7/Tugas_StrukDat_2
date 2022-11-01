@@ -14,7 +14,7 @@ public class Queue {
     }
     
     public boolean isEmpty() {
-        return front == null && rear == null;
+        return front == null;
     }
     
     public void enqueue(Integer d) {
