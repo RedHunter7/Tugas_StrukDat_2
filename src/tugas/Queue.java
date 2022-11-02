@@ -51,22 +51,43 @@ public class Queue {
     }
     
     public void insertElmAt(Integer index, Integer value) {
-    	if ((index <= number) && (index >= 0)) {
-    		Node tmp = rear;
-    		// Mendapatkan nilai node pada index ke-x
+    	if ((index > number) || (index < 0)) {
+    		System.out.println("Tidak bisa melakukan insert");
+    		return;
+    	}
+    	
+    	// jika memasukkan nilai node pada index 0
+    	// eksekusi function enqueue
+    	if (index == 0) {
+    		enqueue(value);
+    		return;
+    	}
+    	
+    	Node newNode = new Node(value, null);
+    	
+    	// jika index yang ingin dimasukkan merupakan index terakhir dari queue
+    	if (index == (number - 1)) newNode.setPtr(front);
+    	else {
+    		Node tmp1 = rear;
+    		
+        	// Mendapatkan nilai node pada index ke-x
     		for(int i=0;i<index;i++) {
-    			tmp = tmp.getPtr();
+    			tmp1 = tmp1.getPtr();
             }
     		
-    		// memberikan nilai baru pada index ke-x
-    		tmp.setData(value);
-    		
-    		// jika nilai index yang ingin diubah sama dengan nilai dari total jumlah queue,
-    		// ubah nilai data pada node front
-    		if (index == number-1) front.setData(value);
-    	} else {
-    		System.out.println("Tidak bisa melakukan insert");
+    		newNode.setPtr(tmp1);
     	}
+		
+		Node tmp2 = rear;
+		
+    	// Mendapatkan nilai node pada index ke x-1
+		for(int i=0;i<index-1;i++) {
+			tmp2 = tmp2.getPtr();
+        }
+		
+		tmp2.setPtr(newNode);
+		
+		number++;
     }
     
     public Object getFront() {

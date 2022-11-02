@@ -18,15 +18,18 @@ public class main {
 		Queue y = new Queue();
 		y.enqueue(2);
 		//y.dequeue();
-		//y.enqueue(5);
-		//y.enqueue(9);
+		y.enqueue(5);
+		y.enqueue(9);
 		//y.enqueue(24);
 		//y.dequeue();
 		//y.dequeue();
 		//y.enqueue(4);
-		//y.insertElmAt(1, 3);
-		System.out.println(y.getFront());
-		System.out.println(y.getRear());
-		//y.printNode();
+		y.insertElmAt(1, 3);
+		y.enqueue(45);
+		//y.dequeue();
+		//y.insertElmAt(1, 25);
+		//System.out.println(y.getFront());
+		//System.out.println(y.getRear());
+		y.printNode();
 	}
 }
